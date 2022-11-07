@@ -9,12 +9,14 @@ text = fgetc(readFile);
     break;
     }else if(text == 9){
     fprintf(writeFile, "TT");
+    }else if(text == 10){
+    fprintf(writeFile,"%c",text);
     }else{
     text = text-16;
         if(text<32){
         text = (text-32)+144;
         }
-    fprintf(writeFile, "%02x", text);
+    fprintf(writeFile, "%2X", text);
     }
 }while(1);
 fclose(writeFile);
