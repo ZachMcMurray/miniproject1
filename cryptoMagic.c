@@ -2,7 +2,23 @@
 #include <string.h>
 
 void encrypting(FILE *writeFile,FILE *readFile){
-fprintf(writeFile, "for the love of god work");
+char text;
+do{
+text = fgetc(readFile);
+    if(text == EOF){
+    break;
+    }else if(text == 9){
+    fprintf(writeFile, "TT");
+    }else if(text == 10){
+    fprintf(writeFile,"%c",text);
+    }else{
+    text = text-16;
+        if(text<32){
+        text = (text-32)+144;
+        }
+    fprintf(writeFile, "%2X", (unsigned char)text);
+    }
+}while(1);
 fclose(writeFile);
 fclose(readFile);
 }
@@ -27,7 +43,7 @@ int main(int argc, char *argv[]){
     here argv[0] = "cryptoMagic", argv[1] = "-E", argv[2] = "myText.txt"*/
 
     if(argc == 2){
-    encrypting(fopen(argv[1],"w"), fopen(argv[1],"r"));
+    encrypting(fopen("temp.txt","w"), fopen(argv[1],"r"));
     }else if(strcmp(argv[1],"-E") == 0){
     encrypting(fopen(argv[2],"w"), fopen(argv[2],"r"));
     }else if(strcmp(argv[1],"-D") == 0){
