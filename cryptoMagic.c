@@ -1,12 +1,16 @@
 #include <stdio.h>
+#include <string.h>
 
-void encrypting(char argv[], int count){
-    // %x in prints gives hexadecimal
-   
+void encrypting(FILE *writeFile,FILE *readFile){
+fprintf(writeFile, "for the love of god work");
+fclose(writeFile);
+fclose(readFile);
 }
 
-void decrypting(char argv[]){
-    
+void decrypting(FILE *writeFile,FILE *readFile){
+fprintf(writeFile, "coding can suck my dick");
+fclose(writeFile);
+fclose(readFile);
 }
 
 int main(int argc, char *argv[]){
@@ -20,14 +24,14 @@ int main(int argc, char *argv[]){
     here argc = 2
     argv[] takes the strings entered in the run line
     .\cryptoMagic -E myText.txt
-    here argv[0] = "cryptoMagic" argv[1] = "-E" argv[2] = "myText.txt"*/
+    here argv[0] = "cryptoMagic", argv[1] = "-E", argv[2] = "myText.txt"*/
 
     if(argc == 2){
-    encrypting(argv, argc);
-    }else if(argv[1]=='-E'){
-    encrypting(argv, argc);
-    }else if(argv[1]=='-D'){
-    decrypting(argv);
+    encrypting(fopen(argv[1],"w"), fopen(argv[1],"r"));
+    }else if(strcmp(argv[1],"-E") == 0){
+    encrypting(fopen(argv[2],"w"), fopen(argv[2],"r"));
+    }else if(strcmp(argv[1],"-D") == 0){
+    decrypting(fopen(argv[2],"w"), fopen(argv[2],"r"));
     }else{
     printf("not entered right");
     }
