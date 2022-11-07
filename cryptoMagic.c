@@ -16,7 +16,7 @@ text = fgetc(readFile);
         if(text<32){
         text = (text-32)+144;
         }
-    fprintf(writeFile, "%2X", text);
+    fprintf(writeFile, "%2X", (unsigned char)text);
     }
 }while(1);
 fclose(writeFile);
