@@ -23,6 +23,20 @@ fclose(writeFile);
 fclose(readFile);
 }
 
+void swapper(FILE *writeFile,FILE *readFile){
+  char text;
+do{
+text = fgetc(readFile);
+    if(text == EOF){
+    break;
+    }else{
+    fprintf(writeFile, "%c", text);
+    }
+}while(1);
+fclose(writeFile);
+fclose(readFile);  
+}
+
 void decrypting(FILE *writeFile,FILE *readFile){
 fprintf(writeFile, "coding can suck my dick");
 fclose(writeFile);
@@ -43,7 +57,9 @@ int main(int argc, char *argv[]){
     here argv[0] = "cryptoMagic", argv[1] = "-E", argv[2] = "myText.txt"*/
 
     if(argc == 2){
+    printf("%c", argv[1][1]);
     encrypting(fopen("temp.txt","w"), fopen(argv[1],"r"));
+    swapper(fopen(argv[1],"w"), fopen("temp.txt","r"));
     }else if(strcmp(argv[1],"-E") == 0){
     encrypting(fopen(argv[2],"w"), fopen(argv[2],"r"));
     }else if(strcmp(argv[1],"-D") == 0){
