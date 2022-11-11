@@ -302,14 +302,17 @@ int main(int argc, char *argv[]){
     encrypting(fopen("temp.txt","w"), fopen(argv[1],"r"));
     swapper(fopen(argv[1],"w"), fopen("temp.txt","r"));
     renamex(argv,argc);
+    remove("temp.txt");
     }else if(strcmp(argv[1],"-E") == 0){
     encrypting(fopen("temp.txt","w"), fopen(argv[2],"r"));
     swapper(fopen(argv[2],"w"), fopen("temp.txt","r"));
     renamex(argv,argc);
+    remove("temp.txt");
     }else if(strcmp(argv[1],"-D") == 0){
     decrypting(fopen("temp.txt","w"), fopen(argv[2],"r"));
     swapper(fopen(argv[2],"w"), fopen("temp.txt","r"));
     renamex(argv,argc);
+    remove("temp.txt");
     }else{
     printf("not entered right");
     }
