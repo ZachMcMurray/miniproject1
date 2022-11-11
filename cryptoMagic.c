@@ -125,6 +125,31 @@ void renamex(char** argv, int count){
 
 void decrypting(FILE *writeFile,FILE *readFile){
 fprintf(writeFile, "coding can suck my dick\nFor the love of god kill me\nPlease work this time");
+char text1;
+char text2;
+char text;
+do{
+text1 = fgetc(readFile);
+text2 = fgetc(readFile);
+    if(text1 == EOF){
+    break;
+    }else if(text1 == 'T' && text2 == 'T'){
+    fprintf(writeFile, "%c", 9);
+    }else if(text1 == '0' && text2 == 'A'){
+    fprintf(writeFile,"%c",10);
+    }else{
+        if(text1 == '8' && text2 == '0'){
+            text = 32;
+        }
+        else{
+            char text = text1 + text2 + 16;
+        }
+        if(text<32){
+        text = (text-32)+144;
+        }
+    fprintf(writeFile, "%c", (unsigned char)text);
+    }
+}while(1);
 fclose(writeFile);
 fclose(readFile);
 }
@@ -141,6 +166,7 @@ int main(int argc, char *argv[]){
     argv[] takes the strings entered in the run line
     .\cryptoMagic -E myText.txt
     here argv[0] = "cryptoMagic", argv[1] = "-E", argv[2] = "myText.txt"*/
+
 
     if(argc == 2){
     encrypting(fopen("temp.txt","w"), fopen(argv[1],"r"));
