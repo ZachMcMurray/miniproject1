@@ -141,7 +141,7 @@ void renamex(char** argv, int count){
         }
 }
 
-void decrypting(FILE *writeFile,FILE *readFile){
+void decrypting(FILE *writeFile,FILE *readFile){//function to decrypt
 
     char text1;
     char text2;
@@ -165,108 +165,108 @@ void decrypting(FILE *writeFile,FILE *readFile){
                 }else{
                     switch(text1){//get the first charater's face value
                     case '0':
-                    text2FV = 0;
-                    break;
+                        text2FV = 0;
+                        break;
                     case '1':
-                    text1FV = 1;
-                    break;
+                        text1FV = 1;
+                        break;
                     case '2':
-                    text1FV = 2;
-                    break;
+                        text1FV = 2;
+                        break;
                     case '3':
-                    text1FV = 3;
-                    break;
+                        text1FV = 3;
+                        break;
                     case '4':
-                    text1FV = 4;
-                    break;
+                        text1FV = 4;
+                        break;
                     case '5':
-                    text1FV = 5;
-                    break;
+                        text1FV = 5;
+                        break;
                     case '6':
-                    text1FV = 6;
-                    break;
+                        text1FV = 6;
+                        break;
                     case '7':
-                    text1FV = 7;
-                    break;
+                        text1FV = 7;
+                        break;
                     case '8':
-                    text1FV = 8;
-                    break;
+                        text1FV = 8;
+                        break;
                     case '9':
-                    text1FV = 9;
-                    break;
+                        text1FV = 9;
+                        break;
                     case 'A':
-                    text1FV = 10;
-                    break;
+                        text1FV = 10;
+                        break;
                     case 'B':
-                    text1FV = 11;
-                    break;
+                        text1FV = 11;
+                        break;
                     case 'C':
-                    text1FV = 12;
-                    break;
+                        text1FV = 12;
+                        break;
                     case 'D':
-                    text1FV = 13;
-                    break;
+                        text1FV = 13;
+                        break;
                     case 'E':
-                    text1FV = 14;
-                    break;
+                        text1FV = 14;
+                        break;
                     case 'F':
-                    text1FV = 15;
-                    break;
+                        text1FV = 15;
+                        break;
                     default:
-                    printf("error");
+                        printf("error");
                     }
 
                     switch(text2){//get the second charater's face value
                     case '0':
-                    text2FV = 0;
-                    break;
+                        text2FV = 0;
+                        break;
                     case '1':
-                    text2FV = 1;
-                    break;
+                        text2FV = 1;
+                        break;
                     case '2':
-                    text2FV = 2;
-                    break;
+                        text2FV = 2;
+                        break;
                     case '3':
-                    text2FV = 3;
-                    break;
+                        text2FV = 3;
+                        break;
                     case '4':
-                    text2FV = 4;
-                    break;
+                        text2FV = 4;
+                        break;
                     case '5':
-                    text2FV = 5;
-                    break;
+                        text2FV = 5;
+                        break;
                     case '6':
-                    text2FV = 6;
-                    break;
+                        text2FV = 6;
+                        break;
                     case '7':
-                    text2FV = 7;
-                    break;
+                        text2FV = 7;
+                        break;
                     case '8':
-                    text2FV = 8;
-                    break;
+                        text2FV = 8;
+                        break;
                     case '9':
-                    text2FV = 9;
-                    break;
+                        text2FV = 9;
+                        break;
                     case 'A':
-                    text2FV = 10;
-                    break;
+                        text2FV = 10;
+                        break;
                     case 'B':
-                    text2FV = 11;
-                    break;
+                        text2FV = 11;
+                        break;
                     case 'C':
-                    text2FV = 12;
-                    break;
+                        text2FV = 12;
+                        break;
                     case 'D':
-                    text2FV = 13;
-                    break;
+                        text2FV = 13;
+                        break;
                     case 'E':
-                    text2FV = 14;
-                    break;
+                        text2FV = 14;
+                        break;
                     case 'F':
-                    text2FV = 15;
-                    break;
+                        text2FV = 15;
+                        break;
                     default:
-                    printf("error");
+                        printf("error");
                     }
 
                 text = (((text1FV*16)+text2FV)+16);//apply decryption key
@@ -299,22 +299,22 @@ int main(int argc, char *argv[]){
 
 
     if(argc == 2){
-    encrypting(fopen("temp.txt","w"), fopen(argv[1],"r"));
-    swapper(fopen(argv[1],"w"), fopen("temp.txt","r"));
-    renamex(argv,argc);
-    remove("temp.txt");
+        encrypting(fopen("temp.txt","w"), fopen(argv[1],"r"));
+        swapper(fopen(argv[1],"w"), fopen("temp.txt","r"));
+        renamex(argv,argc);
+        remove("temp.txt");
     }else if(strcmp(argv[1],"-E") == 0){
-    encrypting(fopen("temp.txt","w"), fopen(argv[2],"r"));
-    swapper(fopen(argv[2],"w"), fopen("temp.txt","r"));
-    renamex(argv,argc);
-    remove("temp.txt");
+        encrypting(fopen("temp.txt","w"), fopen(argv[2],"r"));
+        swapper(fopen(argv[2],"w"), fopen("temp.txt","r"));
+        renamex(argv,argc);
+        remove("temp.txt");
     }else if(strcmp(argv[1],"-D") == 0){
-    decrypting(fopen("temp.txt","w"), fopen(argv[2],"r"));
-    swapper(fopen(argv[2],"w"), fopen("temp.txt","r"));
-    renamex(argv,argc);
-    remove("temp.txt");
+        decrypting(fopen("temp.txt","w"), fopen(argv[2],"r"));
+        swapper(fopen(argv[2],"w"), fopen("temp.txt","r"));
+        renamex(argv,argc);
+        remove("temp.txt");
     }else{
-    printf("not entered right");
+        printf("not entered right");
     }
 
 return 0;
