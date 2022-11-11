@@ -1,0 +1,9 @@
+Welcome to cryptoMagic 
+
+This software is able to encrypt text files and then decrypt them
+
+If you you wish to encrypt a file type in the terminal .\cryptoMagic -E "file name" or .\cryptoMagic "file name"
+This software will then encrypt the file and rename it with the same base name and the ".crp" as a file extension
+
+If you want that file decrypted type in the terminal .\cryptoMagic -D "file name"
+This software will then use the decryption key to decrypt the file and will rename the file with the same base name and ".txt" as a file extension
