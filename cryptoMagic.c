@@ -165,7 +165,7 @@ void decrypting(FILE *writeFile,FILE *readFile){//function to decrypt
                 }else{
                     switch(text1){//get the first charater's face value
                     case '0':
-                        text2FV = 0;
+                        text1FV = 0;
                         break;
                     case '1':
                         text1FV = 1;
